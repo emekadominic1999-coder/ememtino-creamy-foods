@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { BRAND_NAME, BUSINESS_NAME } from "@/lib/menuData";
+import { BRAND_TAGLINE, BUSINESS_NAME } from "@/lib/menuData";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: `${BRAND_NAME} | ${BUSINESS_NAME}`,
+  title: `${BUSINESS_NAME} | ${BRAND_TAGLINE}`,
   description:
-    "Order fresh bread toast, popcorn and ice cream online from Creamy Delight — Ememtino Creamy Foods Venture.",
+    "Order fresh bread toast, popcorn and ice cream online from Ememtino Creamy Foods Venture — Creamy Delight.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

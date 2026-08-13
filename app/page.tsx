@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { BRAND_NAME } from "@/lib/menuData";
+import { BRAND_TAGLINE, BUSINESS_NAME } from "@/lib/menuData";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -39,10 +39,12 @@ export default function HomePage() {
             <motion.h1
               custom={1}
               variants={fadeUp}
-              className="mt-4 font-display text-4xl font-bold leading-tight text-toast-crust sm:text-5xl"
+              className="mt-4 font-display text-3xl font-bold leading-tight text-toast-crust sm:text-4xl"
             >
-              {BRAND_NAME}
-              <span className="block text-brand-red">Toast. Popcorn. Ice Cream.</span>
+              {BUSINESS_NAME}
+              <span className="mt-2 block text-2xl text-brand-red sm:text-3xl">
+                {BRAND_TAGLINE} — Toast. Popcorn. Ice Cream.
+              </span>
             </motion.h1>
             <motion.p custom={2} variants={fadeUp} className="mt-4 max-w-md text-lg text-toast-crust/70">
               Build your perfect loaf, pick your extras, and order online — ready for pickup or

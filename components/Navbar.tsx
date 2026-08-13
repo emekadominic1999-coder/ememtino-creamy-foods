@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useCartStore } from "@/lib/cartStore";
-import { BRAND_NAME } from "@/lib/menuData";
+import { BRAND_TAGLINE, BUSINESS_NAME } from "@/lib/menuData";
 
 export default function Navbar() {
   const [mounted, setMounted] = useState(false);
@@ -22,7 +22,12 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
         <Link href="/" className="flex items-center gap-2">
           <span className="text-2xl">🍞</span>
-          <span className="font-display text-xl font-bold text-brand-red">{BRAND_NAME}</span>
+          <span className="flex flex-col leading-tight">
+            <span className="font-display text-base font-bold text-brand-red sm:text-lg">
+              {BUSINESS_NAME}
+            </span>
+            <span className="text-xs font-medium text-toast-crust/50">{BRAND_TAGLINE}</span>
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-6 text-sm font-medium text-toast-crust sm:flex">
