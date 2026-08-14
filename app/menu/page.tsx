@@ -25,7 +25,7 @@ export default function MenuPage() {
       <motion.h1
         initial={{ opacity: 0, y: -12 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-center font-display text-4xl font-bold text-toast-crust"
+        className="heading-accent pb-4 text-center font-display text-4xl font-bold text-toast-crust"
       >
         Build Your Order
       </motion.h1>
@@ -41,8 +41,8 @@ export default function MenuPage() {
             }}
             className={`flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors ${
               tab === t.id
-                ? "bg-brand-red text-white shadow-lg shadow-brand-red/20"
-                : "bg-white text-toast-crust border-2 border-toast-crust/10"
+                ? "bg-brand-gold text-brand-ink shadow-md shadow-brand-gold/30"
+                : "bg-cream-200 text-toast-crust border-2 border-toast-crust/10"
             }`}
           >
             <span>{t.emoji}</span> {t.label}
@@ -67,7 +67,7 @@ export default function MenuPage() {
                 >
                   <h3 className="font-display text-2xl font-bold text-toast-crust">{cat.label}</h3>
                   <p className="mt-2 text-sm text-toast-crust/70">{cat.content}</p>
-                  <p className="mt-4 text-sm font-semibold text-brand-red">
+                  <p className="mt-4 text-sm font-semibold text-brand-gold">
                     From {formatNaira(Math.min(...cat.sizes.map((s) => s.price)))}
                   </p>
                 </motion.button>
@@ -80,7 +80,7 @@ export default function MenuPage() {
           <div>
             <button
               onClick={() => setCategory(null)}
-              className="mb-6 text-sm font-semibold text-brand-red hover:underline"
+              className="mb-6 text-sm font-semibold text-brand-sky hover:underline"
             >
               ← Back to categories
             </button>
@@ -100,7 +100,7 @@ export default function MenuPage() {
                   className="card flex items-center justify-between p-5 text-left"
                 >
                   <span className="font-medium text-toast-crust">{size.label}</span>
-                  <span className="font-bold text-brand-red">{formatNaira(size.price)}</span>
+                  <span className="font-bold text-brand-gold">{formatNaira(size.price)}</span>
                 </motion.button>
               ))}
             </div>

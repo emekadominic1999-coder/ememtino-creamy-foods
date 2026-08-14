@@ -17,13 +17,13 @@ export default function Navbar() {
       initial={{ y: -40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="sticky top-0 z-40 border-b border-toast-crust/10 bg-cream-50/90 backdrop-blur"
+      className="sticky top-0 z-40 border-b border-brand-sky/10 bg-cream-50/90 backdrop-blur"
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
         <Link href="/" className="flex items-center gap-2">
           <span className="text-2xl">🍞</span>
           <span className="flex flex-col leading-tight">
-            <span className="font-display text-base font-bold text-brand-red sm:text-lg">
+            <span className="font-display text-base font-bold text-brand-sky sm:text-lg">
               {BUSINESS_NAME}
             </span>
             <span className="text-xs font-medium text-toast-crust/50">{BRAND_TAGLINE}</span>
@@ -31,13 +31,13 @@ export default function Navbar() {
         </Link>
 
         <nav className="hidden items-center gap-6 text-sm font-medium text-toast-crust sm:flex">
-          <Link href="/menu" className="transition-colors hover:text-brand-red">
+          <Link href="/menu" className="transition-colors hover:text-brand-sky">
             Order Now
           </Link>
-          <Link href="/account" className="transition-colors hover:text-brand-red">
+          <Link href="/account" className="transition-colors hover:text-brand-sky">
             My Account
           </Link>
-          <Link href="/login" className="transition-colors hover:text-brand-red">
+          <Link href="/login" className="transition-colors hover:text-brand-sky">
             Sign In
           </Link>
         </nav>
@@ -50,7 +50,7 @@ export default function Navbar() {
                 key={count}
                 initial={{ scale: 0.5 }}
                 animate={{ scale: 1 }}
-                className="ml-1 flex h-5 w-5 items-center justify-center rounded-full bg-brand-red text-xs font-bold text-white"
+                className="ml-1 flex h-5 w-5 items-center justify-center rounded-full bg-brand-gold text-xs font-bold text-brand-ink"
               >
                 {count}
               </motion.span>

@@ -50,7 +50,7 @@ export default function LoginPage() {
             placeholder="Email Address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full rounded-2xl border-2 border-toast-crust/10 px-4 py-3 text-sm outline-none focus:border-brand-red/50"
+            className="w-full rounded-2xl border-2 border-toast-crust/10 bg-cream-100 px-4 py-3 text-sm text-toast-crust outline-none placeholder:text-toast-crust/40 focus:border-brand-sky/50"
           />
           <input
             type="password"
@@ -58,13 +58,13 @@ export default function LoginPage() {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full rounded-2xl border-2 border-toast-crust/10 px-4 py-3 text-sm outline-none focus:border-brand-red/50"
+            className="w-full rounded-2xl border-2 border-toast-crust/10 bg-cream-100 px-4 py-3 text-sm text-toast-crust outline-none placeholder:text-toast-crust/40 focus:border-brand-sky/50"
           />
 
           {error && <p className="text-sm text-brand-red">{error}</p>}
 
           <div className="flex justify-end">
-            <button type="button" className="text-xs font-semibold text-toast-crust/60 hover:text-brand-red">
+            <button type="button" className="text-xs font-semibold text-toast-crust/60 hover:text-brand-sky">
               Forgot Password?
             </button>
           </div>
@@ -80,7 +80,7 @@ export default function LoginPage() {
 
         <p className="mt-6 text-center text-sm text-toast-crust/60">
           New here?{" "}
-          <Link href="/signup" className="font-semibold text-brand-red hover:underline">
+          <Link href="/signup" className="font-semibold text-brand-sky hover:underline">
             Get Started
           </Link>
         </p>

@@ -88,7 +88,7 @@ export default function AccountPage() {
                   {o.fulfillment} · {o.status}
                 </p>
               </div>
-              <span className="font-bold text-brand-red">{formatNaira(o.total)}</span>
+              <span className="font-bold text-brand-gold">{formatNaira(o.total)}</span>
             </div>
           ))}
         </div>

@@ -64,7 +64,7 @@ export default function SignupPage() {
               placeholder="Full Name"
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
-              className="w-full rounded-2xl border-2 border-toast-crust/10 px-4 py-3 text-sm outline-none focus:border-brand-red/50"
+              className="w-full rounded-2xl border-2 border-toast-crust/10 bg-cream-100 px-4 py-3 text-sm text-toast-crust outline-none placeholder:text-toast-crust/40 focus:border-brand-sky/50"
             />
             <input
               type="email"
@@ -72,7 +72,7 @@ export default function SignupPage() {
               placeholder="Email Address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full rounded-2xl border-2 border-toast-crust/10 px-4 py-3 text-sm outline-none focus:border-brand-red/50"
+              className="w-full rounded-2xl border-2 border-toast-crust/10 bg-cream-100 px-4 py-3 text-sm text-toast-crust outline-none placeholder:text-toast-crust/40 focus:border-brand-sky/50"
             />
             <input
               type="password"
@@ -81,7 +81,7 @@ export default function SignupPage() {
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full rounded-2xl border-2 border-toast-crust/10 px-4 py-3 text-sm outline-none focus:border-brand-red/50"
+              className="w-full rounded-2xl border-2 border-toast-crust/10 bg-cream-100 px-4 py-3 text-sm text-toast-crust outline-none placeholder:text-toast-crust/40 focus:border-brand-sky/50"
             />
 
             {error && <p className="text-sm text-brand-red">{error}</p>}
@@ -94,7 +94,7 @@ export default function SignupPage() {
 
         <p className="mt-6 text-center text-sm text-toast-crust/60">
           Already have an account?{" "}
-          <Link href="/login" className="font-semibold text-brand-red hover:underline">
+          <Link href="/login" className="font-semibold text-brand-sky hover:underline">
             Sign In
           </Link>
         </p>

@@ -6,19 +6,21 @@ const config: Config = {
     extend: {
       colors: {
         cream: {
-          50: "#fffdf8",
-          100: "#fdf6e9",
-          200: "#f8e9c9",
+          50: "#f5fbff",
+          100: "#e6f4fd",
+          200: "#ffffff",
         },
         toast: {
-          crust: "#8a4b26",
-          bread: "#e8b968",
-          DEFAULT: "#c9702e",
+          crust: "#152233",
+          bread: "#38bdf8",
+          DEFAULT: "#0ea5e9",
         },
         brand: {
-          red: "#b5231c",
-          green: "#2f5233",
-          gold: "#d4a017",
+          red: "#dc4a3d",
+          green: "#1f9d5c",
+          gold: "#ffcc00",
+          ink: "#241d02",
+          sky: "#0ea5e9",
         },
       },
       fontFamily: {

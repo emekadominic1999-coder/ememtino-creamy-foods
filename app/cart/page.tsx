@@ -69,7 +69,7 @@ export default function CartPage() {
                         +
                       </button>
                     </div>
-                    <span className="w-20 text-right font-bold text-brand-red">
+                    <span className="w-20 text-right font-bold text-brand-gold">
                       {formatNaira(line.unitPrice * line.quantity)}
                     </span>
                     <button
@@ -87,7 +87,7 @@ export default function CartPage() {
 
           <div className="card mt-8 flex items-center justify-between p-6">
             <span className="text-lg font-bold text-toast-crust">Total</span>
-            <span className="text-2xl font-bold text-brand-red">{formatNaira(total)}</span>
+            <span className="text-2xl font-bold text-brand-gold">{formatNaira(total)}</span>
           </div>
 
           <div className="mt-6 flex flex-col-reverse gap-3 sm:flex-row sm:justify-between">

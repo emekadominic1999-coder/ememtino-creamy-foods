@@ -12,23 +12,32 @@ html {
 }
 
 body {
-  background-color: #fffdf8;
-  color: #3a2415;
+  background-color: #f5fbff;
+  color: #152233;
 }
 
 ::selection {
-  background-color: #d4a017;
-  color: #fff;
+  background-color: #ffcc00;
+  color: #241d02;
 }
 
 .btn-primary {
-  @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand-red px-6 py-3 font-semibold text-white shadow-lg shadow-brand-red/20 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand-red/30 active:translate-y-0 disabled:opacity-50 disabled:pointer-events-none;
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand-gold px-6 py-3 font-semibold text-brand-ink shadow-lg shadow-brand-gold/30 transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 hover:shadow-xl hover:shadow-brand-gold/40 active:translate-y-0 disabled:opacity-40 disabled:pointer-events-none;
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-toast-crust/20 bg-white px-6 py-3 font-semibold text-toast-crust transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-red/40 hover:text-brand-red;
+  @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-brand-sky/30 bg-white px-6 py-3 font-semibold text-brand-sky transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-sky hover:bg-brand-sky/5;
 }
 
 .card {
-  @apply rounded-3xl border border-toast-crust/10 bg-white shadow-sm;
+  @apply rounded-3xl border border-toast-crust/10 bg-cream-200 shadow-lg shadow-brand-sky/5;
+}
+
+.heading-accent {
+  @apply relative;
+}
+
+.heading-accent::after {
+  content: "";
+  @apply absolute -bottom-2 left-1/2 h-1 w-16 -translate-x-1/2 rounded-full bg-gradient-to-r from-brand-sky to-brand-gold;
 }

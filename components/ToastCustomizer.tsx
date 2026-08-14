@@ -64,15 +64,15 @@ export default function ToastCustomizer({
           exit={{ y: 60, opacity: 0 }}
           transition={{ type: "spring", damping: 26, stiffness: 300 }}
           onClick={(e) => e.stopPropagation()}
-          className="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-t-3xl bg-white p-6 shadow-2xl sm:rounded-3xl"
+          className="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-t-3xl border border-toast-crust/10 bg-cream-200 p-6 shadow-2xl sm:rounded-3xl"
         >
           <div className="flex items-start justify-between">
             <div>
-              <p className="text-sm font-semibold text-brand-gold">{TOAST_CATEGORIES[category].label}</p>
+              <p className="text-sm font-semibold text-brand-sky">{TOAST_CATEGORIES[category].label}</p>
               <h3 className="font-display text-2xl font-bold text-toast-crust">{size.label}</h3>
               <p className="text-sm text-toast-crust/60">{formatNaira(size.price)} base</p>
             </div>
-            <button onClick={onClose} className="rounded-full p-2 text-toast-crust/50 hover:bg-cream-200">
+            <button onClick={onClose} className="rounded-full p-2 text-toast-crust/50 hover:bg-toast-crust/10">
               ✕
             </button>
           </div>
@@ -88,7 +88,7 @@ export default function ToastCustomizer({
                   <label
                     key={addOn.id}
                     className={`flex cursor-pointer items-center justify-between rounded-2xl border-2 px-4 py-3 transition-colors ${
-                      checked ? "border-brand-red bg-brand-red/5" : "border-toast-crust/10"
+                      checked ? "border-brand-sky bg-brand-sky/10" : "border-toast-crust/10"
                     }`}
                   >
                     <span className="flex items-center gap-3">
@@ -96,7 +96,7 @@ export default function ToastCustomizer({
                         type="checkbox"
                         checked={checked}
                         onChange={() => toggleAddOn(addOn.id)}
-                        className="h-5 w-5 accent-brand-red"
+                        className="h-5 w-5 accent-brand-sky"
                       />
                       <span className="font-medium text-toast-crust">{addOn.label}</span>
                     </span>
@@ -118,7 +118,7 @@ export default function ToastCustomizer({
               onChange={(e) => setNotes(e.target.value)}
               placeholder="e.g. no sauce, extra spicy"
               rows={2}
-              className="mt-2 w-full rounded-2xl border-2 border-toast-crust/10 px-4 py-3 text-sm outline-none focus:border-brand-red/50"
+              className="mt-2 w-full rounded-2xl border-2 border-toast-crust/10 bg-cream-100 px-4 py-3 text-sm text-toast-crust outline-none placeholder:text-toast-crust/40 focus:border-brand-sky/50"
             />
           </div>
 

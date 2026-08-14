@@ -113,7 +113,7 @@ export default function CheckoutPage() {
         </div>
         <div className="mt-4 flex justify-between border-t border-toast-crust/10 pt-4">
           <span className="font-bold text-toast-crust">Total</span>
-          <span className="text-xl font-bold text-brand-red">{formatNaira(total)}</span>
+          <span className="text-xl font-bold text-brand-gold">{formatNaira(total)}</span>
         </div>
       </div>
 
@@ -124,14 +124,14 @@ export default function CheckoutPage() {
           placeholder="Full Name"
           value={customerName}
           onChange={(e) => setCustomerName(e.target.value)}
-          className="w-full rounded-2xl border-2 border-toast-crust/10 px-4 py-3 text-sm outline-none focus:border-brand-red/50"
+          className="w-full rounded-2xl border-2 border-toast-crust/10 bg-cream-100 px-4 py-3 text-sm text-toast-crust outline-none placeholder:text-toast-crust/40 focus:border-brand-sky/50"
         />
         <input
           required
           placeholder="WhatsApp / Phone Number"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
-          className="w-full rounded-2xl border-2 border-toast-crust/10 px-4 py-3 text-sm outline-none focus:border-brand-red/50"
+          className="w-full rounded-2xl border-2 border-toast-crust/10 bg-cream-100 px-4 py-3 text-sm text-toast-crust outline-none placeholder:text-toast-crust/40 focus:border-brand-sky/50"
         />
         <input
           required
@@ -139,7 +139,7 @@ export default function CheckoutPage() {
           placeholder="Email Address"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full rounded-2xl border-2 border-toast-crust/10 px-4 py-3 text-sm outline-none focus:border-brand-red/50"
+          className="w-full rounded-2xl border-2 border-toast-crust/10 bg-cream-100 px-4 py-3 text-sm text-toast-crust outline-none placeholder:text-toast-crust/40 focus:border-brand-sky/50"
         />
 
         <div className="flex gap-3">
@@ -147,7 +147,7 @@ export default function CheckoutPage() {
             type="button"
             onClick={() => setFulfillment("pickup")}
             className={`flex-1 rounded-2xl border-2 px-4 py-3 text-sm font-semibold ${
-              fulfillment === "pickup" ? "border-brand-red bg-brand-red/5 text-brand-red" : "border-toast-crust/10 text-toast-crust"
+              fulfillment === "pickup" ? "border-brand-sky bg-brand-sky/10 text-brand-sky" : "border-toast-crust/10 text-toast-crust"
             }`}
           >
             Pickup
@@ -156,7 +156,7 @@ export default function CheckoutPage() {
             type="button"
             onClick={() => setFulfillment("delivery")}
             className={`flex-1 rounded-2xl border-2 px-4 py-3 text-sm font-semibold ${
-              fulfillment === "delivery" ? "border-brand-red bg-brand-red/5 text-brand-red" : "border-toast-crust/10 text-toast-crust"
+              fulfillment === "delivery" ? "border-brand-sky bg-brand-sky/10 text-brand-sky" : "border-toast-crust/10 text-toast-crust"
             }`}
           >
             Delivery
@@ -169,7 +169,7 @@ export default function CheckoutPage() {
             placeholder="Delivery Address"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
-            className="w-full rounded-2xl border-2 border-toast-crust/10 px-4 py-3 text-sm outline-none focus:border-brand-red/50"
+            className="w-full rounded-2xl border-2 border-toast-crust/10 bg-cream-100 px-4 py-3 text-sm text-toast-crust outline-none placeholder:text-toast-crust/40 focus:border-brand-sky/50"
           />
         )}
 
@@ -178,7 +178,7 @@ export default function CheckoutPage() {
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
           rows={2}
-          className="w-full rounded-2xl border-2 border-toast-crust/10 px-4 py-3 text-sm outline-none focus:border-brand-red/50"
+          className="w-full rounded-2xl border-2 border-toast-crust/10 bg-cream-100 px-4 py-3 text-sm text-toast-crust outline-none placeholder:text-toast-crust/40 focus:border-brand-sky/50"
         />
 
         {error && <p className="text-sm text-brand-red">{error}</p>}

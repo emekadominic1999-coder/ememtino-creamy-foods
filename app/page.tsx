@@ -32,17 +32,19 @@ export default function HomePage() {
             <motion.span
               custom={0}
               variants={fadeUp}
-              className="inline-block rounded-full bg-brand-gold/20 px-4 py-1 text-sm font-semibold text-brand-gold"
+              className="inline-block rounded-full bg-brand-sky/15 px-4 py-1 text-sm font-semibold text-brand-sky"
             >
               Fresh · Made to order · Delivered
             </motion.span>
             <motion.h1
               custom={1}
               variants={fadeUp}
-              className="mt-4 font-display text-3xl font-bold leading-tight text-toast-crust sm:text-4xl"
+              className="mt-4 font-display text-3xl font-bold leading-tight sm:text-4xl"
             >
-              {BUSINESS_NAME}
-              <span className="mt-2 block text-2xl text-brand-red sm:text-3xl">
+              <span className="bg-gradient-to-r from-brand-sky to-brand-gold bg-clip-text text-transparent">
+                {BUSINESS_NAME}
+              </span>
+              <span className="mt-2 block text-2xl text-brand-sky sm:text-3xl">
                 {BRAND_TAGLINE} — Toast. Popcorn. Ice Cream.
               </span>
             </motion.h1>
@@ -66,8 +68,12 @@ export default function HomePage() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="relative mx-auto flex h-64 w-64 items-center justify-center sm:h-80 sm:w-80"
           >
-            <div className="absolute inset-0 rounded-full bg-brand-gold/20 blur-3xl" />
-            <motion.div animate={{ y: [0, -12, 0] }} transition={{ duration: 4, repeat: Infinity }} className="relative text-[9rem] sm:text-[11rem]">
+            <div className="absolute inset-0 rounded-full bg-brand-gold/15 blur-3xl" />
+            <motion.div
+              animate={{ y: [0, -12, 0] }}
+              transition={{ duration: 4, repeat: Infinity }}
+              className="relative text-[9rem] drop-shadow-[0_0_45px_rgba(255,204,0,0.4)] sm:text-[11rem]"
+            >
               🍞
             </motion.div>
             <span className="absolute -right-2 top-4 animate-steam text-4xl opacity-70">〰️</span>
@@ -81,7 +87,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center font-display text-3xl font-bold text-toast-crust"
+            className="heading-accent pb-4 text-center font-display text-3xl font-bold text-toast-crust"
           >
             What we serve
           </motion.h2>
