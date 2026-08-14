@@ -71,6 +71,9 @@ export default function ToastCustomizer({
               <p className="text-sm font-semibold text-brand-sky">{TOAST_CATEGORIES[category].label}</p>
               <h3 className="font-display text-2xl font-bold text-toast-crust">{size.label}</h3>
               <p className="text-sm text-toast-crust/60">{formatNaira(size.price)} base</p>
+              <p className="mt-1 text-sm text-toast-crust/70">
+                Includes: {TOAST_CATEGORIES[category].content}
+              </p>
             </div>
             <button onClick={onClose} className="rounded-full p-2 text-toast-crust/50 hover:bg-toast-crust/10">
               ✕
@@ -81,6 +84,11 @@ export default function ToastCustomizer({
             <h4 className="text-sm font-bold uppercase tracking-wide text-toast-crust/60">
               Add extras
             </h4>
+            {category === "special" && (
+              <p className="mt-1 text-xs text-toast-crust/50">
+                Chicken and sausage are already included above — these add extra on top.
+              </p>
+            )}
             <div className="mt-3 space-y-2">
               {ADD_ONS.map((addOn) => {
                 const checked = selectedAddOns.includes(addOn.id);
