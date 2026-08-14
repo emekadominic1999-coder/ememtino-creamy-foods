@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 :root {
-  --font-display: "Georgia", serif;
   --font-body: system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 

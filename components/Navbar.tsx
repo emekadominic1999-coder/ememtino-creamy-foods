@@ -27,7 +27,7 @@ export default function Navbar() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-6 text-sm font-medium text-toast-crust sm:flex">
+        <nav className="hidden items-center gap-6 text-[11px] font-bold uppercase tracking-widest text-toast-crust/80 sm:flex">
           <Link href="/menu" className="transition-colors hover:text-brand-sky">
             Order Now
           </Link>

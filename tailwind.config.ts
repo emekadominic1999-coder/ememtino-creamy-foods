@@ -21,10 +21,11 @@ const config: Config = {
           gold: "#ffcc00",
           ink: "#241d02",
           sky: "#0ea5e9",
+          navy: "#0a1425",
         },
       },
       fontFamily: {
-        display: ["var(--font-display)"],
+        display: ["var(--font-display)", "ui-rounded", "system-ui", "sans-serif"],
         body: ["var(--font-body)"],
       },
       keyframes: {
@@ -37,10 +38,16 @@ const config: Config = {
           "50%": { transform: "translateY(-14px) scaleX(1.3)", opacity: "0.3" },
           "100%": { transform: "translateY(-28px) scaleX(1)", opacity: "0" },
         },
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
       },
       animation: {
         float: "float 4s ease-in-out infinite",
         steam: "steam 2.5s ease-in-out infinite",
+        marquee: "marquee 36s linear infinite",
+        "marquee-reverse": "marquee 42s linear infinite reverse",
       },
     },
   },
