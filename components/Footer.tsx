@@ -1,4 +1,4 @@
-import { BRAND_TAGLINE, BUSINESS_NAME, CONTACT_PHONE } from "@/lib/menuData";
+import { BUSINESS_NAME, CONTACT_PHONE } from "@/lib/menuData";
 
 export default function Footer() {
   return (
@@ -7,8 +7,7 @@ export default function Footer() {
         <div className="grid gap-8 sm:grid-cols-3">
           <div>
             <h3 className="font-display text-lg font-bold text-brand-sky">{BUSINESS_NAME}</h3>
-            <p className="mt-2 text-sm text-toast-crust/80">{BRAND_TAGLINE}</p>
-            <p className="mt-1 text-sm text-toast-crust/70">
+            <p className="mt-2 text-sm text-toast-crust/70">
               Fresh bread toast, popcorn &amp; ice cream, made to order.
             </p>
           </div>

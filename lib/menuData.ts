@@ -1,7 +1,6 @@
 import { AddOn, IceCreamOption, PopcornOption, ToastCategory, ToastSize } from "./types";
 
 export const BUSINESS_NAME = "Ememtino Creamy Foods Venture";
-export const BRAND_TAGLINE = "Creamy Delight";
 export const CONTACT_PHONE = "0906 124 1754";
 export const CONTACT_PHONE_INTL = "2349061241754";
 

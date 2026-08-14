@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { BRAND_TAGLINE, BUSINESS_NAME } from "@/lib/menuData";
+import { BUSINESS_NAME } from "@/lib/menuData";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -45,7 +45,7 @@ export default function HomePage() {
                 {BUSINESS_NAME}
               </span>
               <span className="mt-2 block text-2xl text-brand-sky sm:text-3xl">
-                {BRAND_TAGLINE} — Toast. Popcorn. Ice Cream.
+                Toast. Popcorn. Ice Cream.
               </span>
             </motion.h1>
             <motion.p custom={2} variants={fadeUp} className="mt-4 max-w-md text-lg text-toast-crust/70">

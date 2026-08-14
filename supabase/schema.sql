@@ -1,4 +1,4 @@
--- Ememtino Creamy Foods Venture (Creamy Delight) — Supabase schema
+-- Ememtino Creamy Foods Venture — Supabase schema
 -- Run this in the Supabase SQL editor for a fresh project.
 
 create table if not exists public.profiles (
