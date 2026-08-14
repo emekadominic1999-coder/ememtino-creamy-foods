@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { isSupabaseConfigured, supabase } from "@/lib/supabaseClient";
+import PasswordInput from "@/components/PasswordInput";
+import GoogleSignInButton from "@/components/GoogleSignInButton";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -43,7 +45,17 @@ export default function LoginPage() {
         <h1 className="font-display text-2xl font-bold text-toast-crust">Welcome Back! 👋</h1>
         <p className="mt-1 text-sm text-toast-crust/60">Sign in to continue your order.</p>
 
-        <form onSubmit={handleLogin} className="mt-6 space-y-4">
+        <div className="mt-6">
+          <GoogleSignInButton />
+        </div>
+
+        <div className="my-5 flex items-center gap-3">
+          <div className="h-px flex-1 bg-toast-crust/10" />
+          <span className="text-xs font-semibold uppercase tracking-widest text-toast-crust/40">or</span>
+          <div className="h-px flex-1 bg-toast-crust/10" />
+        </div>
+
+        <form onSubmit={handleLogin} className="space-y-4">
           <input
             type="email"
             required
@@ -52,14 +64,7 @@ export default function LoginPage() {
             onChange={(e) => setEmail(e.target.value)}
             className="w-full rounded-2xl border-2 border-toast-crust/10 bg-cream-100 px-4 py-3 text-sm text-toast-crust outline-none placeholder:text-toast-crust/40 focus:border-brand-sky/50"
           />
-          <input
-            type="password"
-            required
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="w-full rounded-2xl border-2 border-toast-crust/10 bg-cream-100 px-4 py-3 text-sm text-toast-crust outline-none placeholder:text-toast-crust/40 focus:border-brand-sky/50"
-          />
+          <PasswordInput value={password} onChange={setPassword} required />
 
           {error && <p className="text-sm text-brand-red">{error}</p>}
 

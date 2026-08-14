@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { isSupabaseConfigured, supabase } from "@/lib/supabaseClient";
+import PasswordInput from "@/components/PasswordInput";
+import GoogleSignInButton from "@/components/GoogleSignInButton";
 
 export default function SignupPage() {
   const router = useRouter();
@@ -57,39 +59,43 @@ export default function SignupPage() {
             Account created! Check your email to confirm, then sign in.
           </p>
         ) : (
-          <form onSubmit={handleSignup} className="mt-6 space-y-4">
-            <input
-              type="text"
-              required
-              placeholder="Full Name"
-              value={fullName}
-              onChange={(e) => setFullName(e.target.value)}
-              className="w-full rounded-2xl border-2 border-toast-crust/10 bg-cream-100 px-4 py-3 text-sm text-toast-crust outline-none placeholder:text-toast-crust/40 focus:border-brand-sky/50"
-            />
-            <input
-              type="email"
-              required
-              placeholder="Email Address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full rounded-2xl border-2 border-toast-crust/10 bg-cream-100 px-4 py-3 text-sm text-toast-crust outline-none placeholder:text-toast-crust/40 focus:border-brand-sky/50"
-            />
-            <input
-              type="password"
-              required
-              minLength={6}
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full rounded-2xl border-2 border-toast-crust/10 bg-cream-100 px-4 py-3 text-sm text-toast-crust outline-none placeholder:text-toast-crust/40 focus:border-brand-sky/50"
-            />
+          <>
+            <div className="mt-6">
+              <GoogleSignInButton />
+            </div>
 
-            {error && <p className="text-sm text-brand-red">{error}</p>}
+            <div className="my-5 flex items-center gap-3">
+              <div className="h-px flex-1 bg-toast-crust/10" />
+              <span className="text-xs font-semibold uppercase tracking-widest text-toast-crust/40">or</span>
+              <div className="h-px flex-1 bg-toast-crust/10" />
+            </div>
 
-            <button type="submit" disabled={loading} className="btn-primary w-full">
-              {loading ? "Creating account…" : "Get Started"}
-            </button>
-          </form>
+            <form onSubmit={handleSignup} className="space-y-4">
+              <input
+                type="text"
+                required
+                placeholder="Full Name"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+                className="w-full rounded-2xl border-2 border-toast-crust/10 bg-cream-100 px-4 py-3 text-sm text-toast-crust outline-none placeholder:text-toast-crust/40 focus:border-brand-sky/50"
+              />
+              <input
+                type="email"
+                required
+                placeholder="Email Address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full rounded-2xl border-2 border-toast-crust/10 bg-cream-100 px-4 py-3 text-sm text-toast-crust outline-none placeholder:text-toast-crust/40 focus:border-brand-sky/50"
+              />
+              <PasswordInput value={password} onChange={setPassword} required minLength={6} />
+
+              {error && <p className="text-sm text-brand-red">{error}</p>}
+
+              <button type="submit" disabled={loading} className="btn-primary w-full">
+                {loading ? "Creating account…" : "Get Started"}
+              </button>
+            </form>
+          </>
         )}
 
         <p className="mt-6 text-center text-sm text-toast-crust/60">
