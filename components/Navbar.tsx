@@ -28,15 +28,16 @@ export default function Navbar() {
         </Link>
 
         <nav className="hidden items-center gap-6 text-[11px] font-bold uppercase tracking-widest text-toast-crust/80 sm:flex">
-          <Link href="/menu" className="transition-colors hover:text-brand-sky">
-            Order Now
-          </Link>
-          <Link href="/account" className="transition-colors hover:text-brand-sky">
-            My Account
-          </Link>
-          <Link href="/login" className="transition-colors hover:text-brand-sky">
-            Sign In
-          </Link>
+          {[
+            { href: "/menu", label: "Order Now" },
+            { href: "/account", label: "My Account" },
+            { href: "/login", label: "Sign In" },
+          ].map((item) => (
+            <Link key={item.href} href={item.href} className="group relative transition-colors hover:text-brand-sky">
+              {item.label}
+              <span className="absolute -bottom-1.5 left-0 h-[2px] w-0 bg-gradient-to-r from-brand-sky to-brand-gold transition-all duration-300 group-hover:w-full" />
+            </Link>
+          ))}
         </nav>
 
         <Link href="/cart" className="relative">

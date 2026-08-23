@@ -24,6 +24,19 @@ const HIGHLIGHTS = [
   { emoji: "🍨", title: "Ice Cream", desc: "Cool down with a cup or cone." },
 ];
 
+const STATS = [
+  { value: "3", label: "Menu Categories" },
+  { value: "100%", label: "Made To Order" },
+  { value: "Fast", label: "Pickup Or Delivery" },
+];
+
+const CHECKLIST = [
+  "Fresh bread, toasted to order",
+  "Real eggs, cream spread & sauce",
+  "Pickup or delivery, your choice",
+  "Secure online payment",
+];
+
 export default function HomePage() {
   return (
     <div>
@@ -83,9 +96,43 @@ export default function HomePage() {
             <span className="absolute -right-2 top-4 animate-steam text-4xl opacity-70">〰️</span>
           </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.5 }}
+          className="mx-auto mt-16 grid max-w-6xl grid-cols-3 gap-6 border-t border-white/10 pt-8"
+        >
+          {STATS.map((s) => (
+            <div key={s.label} className="text-center sm:text-left">
+              <p className="font-display text-2xl font-semibold text-brand-gold sm:text-3xl">{s.value}</p>
+              <p className="mt-1 text-[10px] font-bold uppercase tracking-widest text-white/60 sm:text-xs">
+                {s.label}
+              </p>
+            </div>
+          ))}
+        </motion.div>
       </section>
 
-      <section className="px-4 py-14 sm:px-6">
+      <div className="relative z-10 mx-auto -mt-8 max-w-5xl px-4 sm:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="grid gap-4 rounded-3xl border border-toast-crust/10 bg-cream-200 p-6 shadow-xl sm:grid-cols-2 sm:p-8 lg:grid-cols-4"
+        >
+          {CHECKLIST.map((item) => (
+            <div key={item} className="flex items-start gap-2">
+              <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-gold/20 text-xs font-bold text-brand-gold">
+                ✓
+              </span>
+              <p className="text-sm font-medium text-toast-crust">{item}</p>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+
+      <section className="px-4 pb-4 pt-14 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <p className="text-center text-[11px] font-bold uppercase tracking-widest text-brand-sky">
             On the menu
@@ -118,11 +165,19 @@ export default function HomePage() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
                 whileHover={{ y: -6 }}
-                className="card p-8 text-center"
+                className="card group p-8 text-left transition-colors hover:border-brand-sky/40"
               >
-                <div className="text-5xl">{h.emoji}</div>
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-sky/10 text-3xl">
+                  {h.emoji}
+                </div>
                 <h3 className="mt-4 text-lg font-bold text-toast-crust">{h.title}</h3>
                 <p className="mt-2 text-sm text-toast-crust/70">{h.desc}</p>
+                <Link
+                  href="/menu"
+                  className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-brand-sky transition-transform group-hover:translate-x-1"
+                >
+                  Browse →
+                </Link>
               </motion.div>
             ))}
           </div>
