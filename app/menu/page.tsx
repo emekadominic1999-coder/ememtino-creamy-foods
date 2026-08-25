@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { formatNaira, ICE_CREAM_OPTIONS, POPCORN_OPTIONS, TOAST_CATEGORIES } from "@/lib/menuData";
+import { formatNaira, ICE_CREAM_OPTIONS, TOAST_CATEGORIES } from "@/lib/menuData";
 import { ToastCategory, ToastSize } from "@/lib/types";
 import ToastCustomizer from "@/components/ToastCustomizer";
 import SimpleItemGrid from "@/components/SimpleItemGrid";
+import PopcornOrder from "@/components/PopcornOrder";
 
 type Tab = "toast" | "popcorn" | "icecream";
 
@@ -107,9 +108,7 @@ export default function MenuPage() {
           </div>
         )}
 
-        {tab === "popcorn" && (
-          <SimpleItemGrid kind="popcorn" emoji="🍿" items={POPCORN_OPTIONS} />
-        )}
+        {tab === "popcorn" && <PopcornOrder />}
 
         {tab === "icecream" && (
           <SimpleItemGrid kind="icecream" emoji="🍨" items={ICE_CREAM_OPTIONS} />

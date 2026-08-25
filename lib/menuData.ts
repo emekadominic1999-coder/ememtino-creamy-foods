@@ -1,4 +1,4 @@
-import { AddOn, IceCreamOption, PopcornOption, ToastCategory, ToastSize } from "./types";
+import { AddOn, IceCreamOption, ToastCategory, ToastSize } from "./types";
 
 export const BUSINESS_NAME = "Ememtino Creamy Foods Venture";
 export const CONTACT_PHONE = "0906 124 1754";
@@ -49,19 +49,15 @@ export const ADD_ONS: AddOn[] = [
   { id: "extra-cream-spread", label: "Extra Cream Spread", price: 300 },
 ];
 
-// Popcorn flavours/prices from the menu board start at ₦300 — update sizes/prices
-// once exact flavours are confirmed.
-export const POPCORN_OPTIONS: PopcornOption[] = [
-  { id: "popcorn-small", label: "Small Pack", price: 300 },
-  { id: "popcorn-medium", label: "Medium Pack", price: 500 },
-  { id: "popcorn-large", label: "Large Pack", price: 800 },
-];
+// Popcorn is sold by amount, not fixed sizes — customer names their own price, ₦300 minimum.
+export const POPCORN_MIN_PRICE = 300;
+export const POPCORN_QUICK_AMOUNTS = [300, 500, 1000, 1500];
 
-// Placeholder ice cream lineup — update flavours/prices to match what you actually stock.
 export const ICE_CREAM_OPTIONS: IceCreamOption[] = [
-  { id: "icecream-cup", label: "Regular Cup", price: 700 },
-  { id: "icecream-double", label: "Double Scoop Cup", price: 1200 },
-  { id: "icecream-cone", label: "Cone", price: 600 },
+  { id: "icecream-small", label: "Small", price: 500 },
+  { id: "icecream-medium", label: "Medium", price: 1000 },
+  { id: "icecream-large", label: "Large", price: 1500 },
+  { id: "icecream-xl", label: "Extra Large", price: 2000 },
 ];
 
 export function formatNaira(amount: number): string {

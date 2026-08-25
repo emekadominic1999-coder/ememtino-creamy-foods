@@ -13,12 +13,6 @@ export interface AddOn {
   price: number;
 }
 
-export interface PopcornOption {
-  id: string;
-  label: string;
-  price: number;
-}
-
 export interface IceCreamOption {
   id: string;
   label: string;

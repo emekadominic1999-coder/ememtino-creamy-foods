@@ -1,4 +1,4 @@
-import { formatNaira, ICE_CREAM_OPTIONS, POPCORN_OPTIONS, TOAST_CATEGORIES } from "@/lib/menuData";
+import { formatNaira, ICE_CREAM_OPTIONS, POPCORN_MIN_PRICE, TOAST_CATEGORIES } from "@/lib/menuData";
 
 interface TickerItem {
   emoji: string;
@@ -10,7 +10,7 @@ const ROW_A: TickerItem[] = [
   { emoji: "🍞", label: "Standard Toast — Full Loaf (4 eggs)", price: TOAST_CATEGORIES.standard.sizes[0].price },
   { emoji: "🍞", label: "Special Toast — Full Loaf (4 eggs)", price: TOAST_CATEGORIES.special.sizes[0].price },
   { emoji: "🍞", label: "Standard Toast — Half Loaf (1 egg)", price: TOAST_CATEGORIES.standard.sizes[5].price },
-  ...POPCORN_OPTIONS.map((p) => ({ emoji: "🍿", label: p.label, price: p.price })),
+  { emoji: "🍿", label: "Popcorn — Name Your Price", price: POPCORN_MIN_PRICE },
 ];
 
 const ROW_B: TickerItem[] = [
