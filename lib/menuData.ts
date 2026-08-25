@@ -37,6 +37,20 @@ export const TOAST_CATEGORIES: Record<
       { id: "quarter-1", label: "1/4 Loaf (1 egg)", eggs: 1, price: 1500 },
     ],
   },
+  // Same lineup and pricing as Special Toast, with beef standing in for
+  // chicken — placeholder prices (mirrored from Special Toast) until confirmed.
+  beef: {
+    label: "Beef Toast",
+    content: "Eggs, cream spread, sauce, beef and sausages",
+    sizes: [
+      { id: "full-4", label: "Full Loaf (4 eggs)", eggs: 4, price: 4600 },
+      { id: "full-2", label: "Full Loaf (2 eggs)", eggs: 2, price: 4000 },
+      { id: "twothirds-2", label: "2/3 Loaf (2 eggs)", eggs: 2, price: 3200 },
+      { id: "half-1", label: "Half Loaf (1 egg)", eggs: 1, price: 2000 },
+      { id: "third-1", label: "1/3 Loaf (1 egg)", eggs: 1, price: 1600 },
+      { id: "quarter-1", label: "1/4 Loaf (1 egg)", eggs: 1, price: 1500 },
+    ],
+  },
 };
 
 // Extra chicken/sausage/egg prices are from the menu board photo. Sauce,

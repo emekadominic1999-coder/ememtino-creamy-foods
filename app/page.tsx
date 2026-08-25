@@ -17,8 +17,8 @@ const fadeUp = {
 const HIGHLIGHTS = [
   {
     emoji: "🍞",
-    title: "Standard & Special Toast",
-    desc: "Eggs, cream spread and sauce — or go special with chicken and sausages.",
+    title: "Standard, Special & Beef Toast",
+    desc: "Eggs, cream spread and sauce — or go special with chicken, beef and sausages.",
   },
   { emoji: "🍿", title: "Popcorn", desc: "Freshly popped, from ₦300." },
   { emoji: "🍨", title: "Ice Cream", desc: "Cool down with a cup or cone." },

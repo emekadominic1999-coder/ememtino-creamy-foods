@@ -1,4 +1,4 @@
-export type ToastCategory = "standard" | "special";
+export type ToastCategory = "standard" | "special" | "beef";
 
 export interface ToastSize {
   id: string;

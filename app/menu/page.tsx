@@ -53,7 +53,7 @@ export default function MenuPage() {
 
       <div className="mt-10">
         {tab === "toast" && !category && (
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {(Object.keys(TOAST_CATEGORIES) as ToastCategory[]).map((catId, i) => {
               const cat = TOAST_CATEGORIES[catId];
               return (

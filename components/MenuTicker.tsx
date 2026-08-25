@@ -9,12 +9,14 @@ interface TickerItem {
 const ROW_A: TickerItem[] = [
   { emoji: "🍞", label: "Standard Toast — Full Loaf (4 eggs)", price: TOAST_CATEGORIES.standard.sizes[0].price },
   { emoji: "🍞", label: "Special Toast — Full Loaf (4 eggs)", price: TOAST_CATEGORIES.special.sizes[0].price },
+  { emoji: "🍞", label: "Beef Toast — Full Loaf (4 eggs)", price: TOAST_CATEGORIES.beef.sizes[0].price },
   { emoji: "🍞", label: "Standard Toast — Half Loaf (1 egg)", price: TOAST_CATEGORIES.standard.sizes[5].price },
   { emoji: "🍿", label: "Popcorn — Name Your Price", price: POPCORN_MIN_PRICE },
 ];
 
 const ROW_B: TickerItem[] = [
   { emoji: "🍞", label: "Special Toast — Half Loaf (1 egg)", price: TOAST_CATEGORIES.special.sizes[3].price },
+  { emoji: "🍞", label: "Beef Toast — Half Loaf (1 egg)", price: TOAST_CATEGORIES.beef.sizes[3].price },
   { emoji: "🍞", label: "Standard Toast — 1/4 Loaf (1 egg)", price: TOAST_CATEGORIES.standard.sizes[7].price },
   ...ICE_CREAM_OPTIONS.map((i) => ({ emoji: "🍨", label: i.label, price: i.price })),
   { emoji: "🍞", label: "Special Toast — 1/3 Loaf (1 egg)", price: TOAST_CATEGORIES.special.sizes[4].price },
