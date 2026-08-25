@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useCartStore } from "@/lib/cartStore";
-import { formatNaira } from "@/lib/menuData";
+import { DELIVERY_FEE, formatNaira } from "@/lib/menuData";
 import { isSupabaseConfigured, supabase } from "@/lib/supabaseClient";
 import PaystackButton from "@/components/PaystackButton";
 
@@ -13,12 +13,14 @@ export default function CheckoutPage() {
   const router = useRouter();
   const [mounted, setMounted] = useState(false);
   const lines = useCartStore((s) => s.lines);
-  const total = useCartStore((s) => s.total());
+  const subtotal = useCartStore((s) => s.total());
 
   const [customerName, setCustomerName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [fulfillment, setFulfillment] = useState<"pickup" | "delivery">("pickup");
+  const deliveryFee = fulfillment === "delivery" ? DELIVERY_FEE : 0;
+  const total = subtotal + deliveryFee;
   const [address, setAddress] = useState("");
   const [notes, setNotes] = useState("");
   const [submitting, setSubmitting] = useState(false);
@@ -51,12 +53,15 @@ export default function CheckoutPage() {
           fulfillment,
           address: fulfillment === "delivery" ? address : undefined,
           notes: notes || undefined,
-          lines: lines.map((l) => ({
-            name: l.name,
-            unitPrice: l.unitPrice,
-            quantity: l.quantity,
-            notes: l.notes,
-          })),
+          lines: [
+            ...lines.map((l) => ({
+              name: l.name,
+              unitPrice: l.unitPrice,
+              quantity: l.quantity,
+              notes: l.notes,
+            })),
+            ...(deliveryFee > 0 ? [{ name: "Delivery fee", unitPrice: deliveryFee, quantity: 1 }] : []),
+          ],
           total,
           userId: data.user?.id,
         }),
@@ -110,6 +115,16 @@ export default function CheckoutPage() {
               <span className="font-semibold text-toast-crust">{formatNaira(l.unitPrice * l.quantity)}</span>
             </div>
           ))}
+          <div className="flex justify-between text-sm">
+            <span className="text-toast-crust/80">Subtotal</span>
+            <span className="font-semibold text-toast-crust">{formatNaira(subtotal)}</span>
+          </div>
+          {fulfillment === "delivery" && (
+            <div className="flex justify-between text-sm">
+              <span className="text-toast-crust/80">Delivery fee</span>
+              <span className="font-semibold text-toast-crust">{formatNaira(deliveryFee)}</span>
+            </div>
+          )}
         </div>
         <div className="mt-4 flex justify-between border-t border-toast-crust/10 pt-4">
           <span className="font-bold text-toast-crust">Total</span>
@@ -159,7 +174,7 @@ export default function CheckoutPage() {
               fulfillment === "delivery" ? "border-brand-sky bg-brand-sky/10 text-brand-sky" : "border-toast-crust/10 text-toast-crust"
             }`}
           >
-            Delivery
+            Delivery <span className="text-xs font-normal opacity-70">(+{formatNaira(DELIVERY_FEE)})</span>
           </button>
         </div>
 

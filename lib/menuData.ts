@@ -4,6 +4,9 @@ export const BUSINESS_NAME = "Ememtino Creamy Foods Venture";
 export const CONTACT_PHONE = "0906 124 1754";
 export const CONTACT_PHONE_INTL = "2349061241754";
 
+// Flat delivery fee — placeholder until the real amount is confirmed.
+export const DELIVERY_FEE = 500;
+
 export const TOAST_CATEGORIES: Record<
   ToastCategory,
   { label: string; content: string; sizes: ToastSize[] }
