@@ -39,11 +39,13 @@ export const TOAST_CATEGORIES: Record<
   },
 };
 
-// Extra chicken/sausage/egg prices are from the menu board photo. Sauce and
-// cream spread extras were added by request — placeholder prices until confirmed.
+// Extra chicken/sausage/egg prices are from the menu board photo. Sauce,
+// cream spread and beef extras were added by request — placeholder prices
+// until confirmed.
 export const ADD_ONS: AddOn[] = [
   { id: "extra-egg", label: "Extra Egg", price: 400 },
   { id: "extra-chicken", label: "Extra Chicken", price: 500 },
+  { id: "extra-beef", label: "Extra Beef", price: 600 },
   { id: "extra-sausage", label: "Extra Sausage", price: 400 },
   { id: "extra-sauce", label: "Extra Sauce", price: 300 },
   { id: "extra-cream-spread", label: "Extra Cream Spread", price: 300 },
