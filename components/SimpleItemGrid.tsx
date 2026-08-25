@@ -13,7 +13,7 @@ export default function SimpleItemGrid({
 }: {
   kind: CartLineKind;
   emoji: string;
-  items: { id: string; label: string; price: number }[];
+  items: { id: string; label: string; price: number; emoji?: string }[];
 }) {
   const addLine = useCartStore((s) => s.addLine);
   const [justAdded, setJustAdded] = useState<string | null>(null);
@@ -41,7 +41,7 @@ export default function SimpleItemGrid({
           whileHover={{ y: -4 }}
           className="card flex flex-col items-center gap-3 p-6 text-center"
         >
-          <span className="text-4xl">{emoji}</span>
+          <span className="text-4xl">{item.emoji ?? emoji}</span>
           <h4 className="font-bold text-toast-crust">{item.label}</h4>
           <p className="text-sm font-semibold text-toast-crust/70">{formatNaira(item.price)}</p>
           <button onClick={() => handleAdd(item)} className="btn-secondary w-full !py-2 text-sm">

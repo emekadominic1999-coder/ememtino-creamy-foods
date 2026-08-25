@@ -2,18 +2,20 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { formatNaira, ICE_CREAM_OPTIONS, TOAST_CATEGORIES } from "@/lib/menuData";
+import { DRINK_OPTIONS, formatNaira, ICE_CREAM_OPTIONS, SHAWARMA_OPTIONS, TOAST_CATEGORIES } from "@/lib/menuData";
 import { ToastCategory, ToastSize } from "@/lib/types";
 import ToastCustomizer from "@/components/ToastCustomizer";
 import SimpleItemGrid from "@/components/SimpleItemGrid";
 import PopcornOrder from "@/components/PopcornOrder";
 
-type Tab = "toast" | "popcorn" | "icecream";
+type Tab = "toast" | "popcorn" | "icecream" | "shawarma" | "drinks";
 
 const TABS: { id: Tab; label: string; emoji: string }[] = [
   { id: "toast", label: "Toast", emoji: "🍞" },
   { id: "popcorn", label: "Popcorn", emoji: "🍿" },
   { id: "icecream", label: "Ice Cream", emoji: "🍨" },
+  { id: "shawarma", label: "Shawarma", emoji: "🌯" },
+  { id: "drinks", label: "Drinks", emoji: "🥤" },
 ];
 
 export default function MenuPage() {
@@ -112,6 +114,14 @@ export default function MenuPage() {
 
         {tab === "icecream" && (
           <SimpleItemGrid kind="icecream" emoji="🍨" items={ICE_CREAM_OPTIONS} />
+        )}
+
+        {tab === "shawarma" && (
+          <SimpleItemGrid kind="shawarma" emoji="🌯" items={SHAWARMA_OPTIONS} />
+        )}
+
+        {tab === "drinks" && (
+          <SimpleItemGrid kind="drink" emoji="🥤" items={DRINK_OPTIONS} />
         )}
       </div>
 

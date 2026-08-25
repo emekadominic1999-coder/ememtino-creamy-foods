@@ -1,4 +1,4 @@
-import { AddOn, IceCreamOption, ToastCategory, ToastSize } from "./types";
+import { AddOn, IceCreamOption, MenuItemOption, ToastCategory, ToastSize } from "./types";
 
 export const BUSINESS_NAME = "Ememtino Creamy Foods Venture";
 export const CONTACT_PHONE = "0906 124 1754";
@@ -76,6 +76,24 @@ export const ICE_CREAM_OPTIONS: IceCreamOption[] = [
   { id: "icecream-medium", label: "Medium", price: 1000 },
   { id: "icecream-large", label: "Large", price: 1500 },
   { id: "icecream-xl", label: "Extra Large", price: 2000 },
+];
+
+// Placeholder lineup and prices — update once confirmed.
+export const SHAWARMA_OPTIONS: MenuItemOption[] = [
+  { id: "shawarma-regular", label: "Regular Shawarma", price: 1500 },
+  { id: "shawarma-special", label: "Special Shawarma", price: 2000 },
+];
+
+// Placeholder lineup and prices — update once confirmed.
+export const DRINK_OPTIONS: MenuItemOption[] = [
+  { id: "drink-tigernut", label: "Tigernut Drink", price: 500, emoji: "🌰" },
+  { id: "drink-zobo", label: "Zobo", price: 500, emoji: "🌺" },
+  { id: "drink-soyamilk", label: "Soyamilk", price: 500, emoji: "🥛" },
+  { id: "drink-nutrimilk", label: "Nutri Milk", price: 600, emoji: "🥛" },
+  { id: "drink-nutriyo", label: "Nutri Yo", price: 600, emoji: "🥛" },
+  { id: "drink-cola", label: "Coca-Cola", price: 400, emoji: "🥤" },
+  { id: "drink-sprite", label: "Sprite", price: 400, emoji: "🥤" },
+  { id: "drink-fanta", label: "Fanta", price: 400, emoji: "🥤" },
 ];
 
 export function formatNaira(amount: number): string {

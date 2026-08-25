@@ -22,10 +22,16 @@ const HIGHLIGHTS = [
   },
   { emoji: "🍿", title: "Popcorn", desc: "Freshly popped, from ₦300." },
   { emoji: "🍨", title: "Ice Cream", desc: "Cool down with a cup or cone." },
+  { emoji: "🌯", title: "Shawarma", desc: "Regular or special, wrapped fresh." },
+  {
+    emoji: "🥤",
+    title: "Drinks",
+    desc: "Zobo, tigernut, soyamilk, Nutri Milk, Nutri Yo, cola, Sprite & Fanta.",
+  },
 ];
 
 const STATS = [
-  { value: "3", label: "Menu Categories" },
+  { value: "5", label: "Menu Categories" },
   { value: "100%", label: "Made To Order" },
   { value: "Fast", label: "Pickup Or Delivery" },
 ];
@@ -156,7 +162,7 @@ export default function HomePage() {
           >
             What we serve
           </motion.h2>
-          <div className="mt-10 grid gap-6 sm:grid-cols-3">
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {HIGHLIGHTS.map((h, i) => (
               <motion.div
                 key={h.title}

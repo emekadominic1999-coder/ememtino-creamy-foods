@@ -19,7 +19,14 @@ export interface IceCreamOption {
   price: number;
 }
 
-export type CartLineKind = "toast" | "popcorn" | "icecream";
+export interface MenuItemOption {
+  id: string;
+  label: string;
+  price: number;
+  emoji?: string;
+}
+
+export type CartLineKind = "toast" | "popcorn" | "icecream" | "shawarma" | "drink";
 
 export interface CartLine {
   lineId: string;
