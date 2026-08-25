@@ -15,25 +15,25 @@ export default function ToastCustomizer({
   size: ToastSize;
   onClose: () => void;
 }) {
-  const [selectedAddOns, setSelectedAddOns] = useState<string[]>([]);
+  const [addOnQuantities, setAddOnQuantities] = useState<Record<string, number>>({});
   const [quantity, setQuantity] = useState(1);
   const [notes, setNotes] = useState("");
   const [added, setAdded] = useState(false);
   const addLine = useCartStore((s) => s.addLine);
 
   const addOnsTotal = useMemo(
-    () => ADD_ONS.filter((a) => selectedAddOns.includes(a.id)).reduce((sum, a) => sum + a.price, 0),
-    [selectedAddOns]
+    () => ADD_ONS.reduce((sum, a) => sum + (addOnQuantities[a.id] ?? 0) * a.price, 0),
+    [addOnQuantities]
   );
   const unitPrice = size.price + addOnsTotal;
   const total = unitPrice * quantity;
 
-  function toggleAddOn(id: string) {
-    setSelectedAddOns((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]));
+  function setAddOnQuantity(id: string, qty: number) {
+    setAddOnQuantities((prev) => ({ ...prev, [id]: Math.max(0, qty) }));
   }
 
   function handleAddToCart() {
-    const chosenAddOns = ADD_ONS.filter((a) => selectedAddOns.includes(a.id));
+    const chosenAddOns = ADD_ONS.filter((a) => (addOnQuantities[a.id] ?? 0) > 0);
     addLine({
       kind: "toast",
       name: `${TOAST_CATEGORIES[category].label} — ${size.label}`,
@@ -42,7 +42,10 @@ export default function ToastCustomizer({
       notes: notes.trim() || undefined,
       breakdown: [
         `Base: ${formatNaira(size.price)}`,
-        ...chosenAddOns.map((a) => `${a.label}: +${formatNaira(a.price)}`),
+        ...chosenAddOns.map((a) => {
+          const qty = addOnQuantities[a.id] ?? 0;
+          return `${a.label} x${qty}: +${formatNaira(a.price * qty)}`;
+        }),
       ],
     });
     setAdded(true);
@@ -84,34 +87,43 @@ export default function ToastCustomizer({
             <h4 className="text-sm font-bold uppercase tracking-wide text-toast-crust/60">
               Add extras
             </h4>
-            {category === "special" && (
-              <p className="mt-1 text-xs text-toast-crust/50">
-                Chicken and sausage are already included above — these add extra on top.
-              </p>
-            )}
+            <p className="mt-1 text-xs text-toast-crust/50">
+              Your base already includes {TOAST_CATEGORIES[category].content.toLowerCase()} — these add
+              more on top.
+            </p>
             <div className="mt-3 space-y-2">
               {ADD_ONS.map((addOn) => {
-                const checked = selectedAddOns.includes(addOn.id);
+                const qty = addOnQuantities[addOn.id] ?? 0;
                 return (
-                  <label
+                  <div
                     key={addOn.id}
-                    className={`flex cursor-pointer items-center justify-between rounded-2xl border-2 px-4 py-3 transition-colors ${
-                      checked ? "border-brand-sky bg-brand-sky/10" : "border-toast-crust/10"
+                    className={`flex items-center justify-between rounded-2xl border-2 px-4 py-3 transition-colors ${
+                      qty > 0 ? "border-brand-sky bg-brand-sky/5" : "border-toast-crust/10"
                     }`}
                   >
-                    <span className="flex items-center gap-3">
-                      <input
-                        type="checkbox"
-                        checked={checked}
-                        onChange={() => toggleAddOn(addOn.id)}
-                        className="h-5 w-5 accent-brand-sky"
-                      />
-                      <span className="font-medium text-toast-crust">{addOn.label}</span>
-                    </span>
-                    <span className="text-sm font-semibold text-toast-crust/70">
-                      +{formatNaira(addOn.price)}
-                    </span>
-                  </label>
+                    <div>
+                      <p className="font-medium text-toast-crust">{addOn.label}</p>
+                      <p className="text-xs text-toast-crust/50">+{formatNaira(addOn.price)} each</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <button
+                        type="button"
+                        onClick={() => setAddOnQuantity(addOn.id, qty - 1)}
+                        disabled={qty === 0}
+                        className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-toast-crust/20 text-lg font-bold text-toast-crust disabled:opacity-30"
+                      >
+                        −
+                      </button>
+                      <span className="w-5 text-center font-bold text-toast-crust">{qty}</span>
+                      <button
+                        type="button"
+                        onClick={() => setAddOnQuantity(addOn.id, qty + 1)}
+                        className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-toast-crust/20 text-lg font-bold text-toast-crust"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
                 );
               })}
             </div>
